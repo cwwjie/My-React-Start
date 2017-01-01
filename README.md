@@ -1,6 +1,12 @@
 # My-React-Start
 我的React启动架
-
+# 初始化
+> $ npm install
+# 启动
+开发环境
+> $ npm run dev
+生产环境
+> $ npm run pro
 # 怎么开始？安装写啥？
 	- 先把文件夹安排好 （OK）
 	  - 我需要是啥？
