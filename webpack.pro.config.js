@@ -6,9 +6,8 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, "build"),
-		// publicPath: "/assets/", // 这个是输出的地址，上面的文件不会用到，但是下面的文件会用到对的！
-		filename: "bundle.js",
-		chunkFilename: '[name].[chunkhash:5].chunk.js'
+		publicPath: "/assets/",
+		filename: "bundle.js"
 	},
 	plugins: [
 		new webpack.DefinePlugin({
@@ -20,8 +19,7 @@ module.exports = {
 			compress:{
 				warnings: true
 			}
-		}),
-		new webpack.optimize.CommonsChunkPlugin('common.js')// 这个要抽出
+		})
 	],
 	module: {
 		loaders: [
