@@ -1,0 +1,109 @@
+<header id='header' data-homeurl="{{homeURL}}">
+  <div class="header-logo">
+    <a href='{{ homeURL + "index.html" }}'><i></i></a>
+  </div>
+
+  <div class='header-content'>
+    <a id='headerHome' href='{{ homeURL + "index.html" }}'>首页</a>
+    <a id='headerVillage' href='{{ homeURL + "village/index.html" }}'>度假村直订</a>
+    <a id='headerWedding' href='{{ homeURL + "wedding/index.html" }}'>婚拍</a>
+    <a id='taobao' href='https://divet.taobao.com/?spm=a1z10.1-c.0.0.8cxl3q'>淘宝店铺</a>
+  </div>
+
+  <div class="header-login" id="header-login">
+
+    <div class="login-false">
+      <a href='{{ homeURL + "user/signup.html" }}'><div>注册</div></a>
+      <a><div id="login-show">登录</div></a>
+    </div>
+
+    <div class="login-true">
+      <div class="dropdown login-droplist">
+
+        <div class="login-user" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i></i><span class="user-name">用户</span>
+          <span class="caret"></span>
+        </div>
+
+        <ul class="dropdown-menu pull-right" aria-labelledby="dLabel">
+
+          <li class="Personal">
+            <a href='{{ homeURL + "user/account.html#Person" }}'>
+              <i></i><span>个人中心</span>
+            </a>
+          </li>
+
+          <li class="order-Dvt">
+            <a href='{{ homeURL + "user/account.html#Orders" }}'>
+              <i></i><span>商城订单</span>
+            </a>
+          </li>
+
+          <li class="order-Taobao">
+            <a href='{{ homeURL + "user/account.html#taobao" }}'>
+              <i></i><span>淘宝订单</span>
+            </a>
+          </li>
+
+          <li class="Account">
+            <a href='{{ homeURL + "user/account.html#Accoun" }}'>
+              <i></i><span>账号中心</span>
+            </a>
+          </li>
+
+          <li class="Traveller-Infor">
+            <a href='{{ homeURL + "user/account.html#Accoun" }}'>
+              <i></i><span>旅客信息</span>
+            </a>
+          </li>
+
+          <li class="Logout">
+            <a href='javascript:;' id="droplist-logout">
+              <i></i><span>退出登录</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-tell">
+    服务咨询 :<a href="tel://4006709078"> 400-9688-768</a>
+  </div>
+</header>
+
+<div class="modal fade bs-example-modal-sm" id="Modal-login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+  <div class="modal-login">
+    <div class="modal-content">
+      <div class="modal-hiden" id="login-hiden">X</div>
+
+      <div class="content-title">
+        <div class="title-name">登录</div>
+        <div class="title-signup"><a href={{ homeURL + "user/signup.html" }}>去注册 ></a></div>
+      </div>
+
+      <div class="input-username">
+        <input type="text" name="username" id="input-username" placeholder="账号">
+        <label for="username"></label>
+      </div>
+
+      <div class="input-password">
+        <input type="password" name="password" id="input-password" placeholder="密码">
+        <div class="password-eye" id="password-eye"></div>
+        <label for="password"></label>
+      </div>
+
+      <div class="content-option">
+        <input type="checkbox" name="auto" id="option-cookie">
+        <label for="">记住密码</label>
+        <div class="content-forget">
+          <a href={{ homeURL + "user/forget.html" }}>忘记密码</a>
+        </div>
+      </div>
+
+      <div class="content-btn" id="login-subimt">登录</div>
+    </div>
+  </div>
+
+</div>

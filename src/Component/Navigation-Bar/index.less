@@ -1,0 +1,278 @@
+header {
+  position: fixed;
+	width: 100%;
+  min-width: 995px;
+	min-height: 50px;
+	background:#fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.26);
+	z-index: 2;
+  font-size: 14px;
+	font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  .header-logo {
+    float: left;
+    padding-top: 8px;
+    padding-left: 10px;
+    @media (max-width: 1270px) {
+      display: none;
+    }
+
+    i {
+      width: 150px;
+      height: 35px;
+      background-position:-150px 0px;
+    }
+  }
+
+  .header-content {
+    position: absolute;
+    left: 50%;
+    width: 995px;
+    margin-left: -500px;
+    height: 50px;
+
+    a {
+      display: inline-block;
+      height: 50px;
+      padding: 0px 15px;
+      line-height: 50px;
+      color: #4d5d77;
+      cursor: pointer;
+      transition: background 0.5s;
+      -moz-transition: background 0.5s;	/* Firefox 4 */
+      -webkit-transition: background 0.5s;	/* Safari 和 Chrome */
+      -o-transition: background 0.5s;	/* Opera */
+    }
+
+    a:hover {
+      text-decoration: none;
+      background: rgb(225, 225, 232);
+    }
+
+    .content-selected {
+      font-weight: bold;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+      color: #409EFF;
+    }
+  }
+
+  .header-tell {
+    float: right;
+    line-height: 50px;
+    padding: 0px 10px;
+
+    a {
+      padding: 0px 5px;
+    }
+  }
+
+  .header-login {
+    float: right;
+    line-height: 50px;
+    padding-right: 20px;
+
+    .login-false {
+      display: none;
+
+      div {
+        padding: 0px 10px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      div:hover {
+        color: #409EFF;
+        text-decoration: underline;
+      }
+    }
+
+    .login-true {
+      display: none;
+      padding-right: 15px;
+
+      .login-droplist {
+        .login-user {
+          cursor: pointer;
+  
+          .user-name {
+            padding: 0px 5px;
+          }
+  
+          i {
+            display: inline-block;
+            position: relative;
+            top: 10px;
+            width: 32px;
+            height: 32px;
+            background-position: -120px -185px;
+          }
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          width: 120px;
+          min-width: 120px;
+          padding: 0px;
+          margin: 0px;
+
+          a {
+            padding: 0px 0px 0px 8px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+          }
+
+          span {
+            padding-left: 5px;
+          }
+
+          i {
+            position: relative;
+            top: 10px;
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+          }
+
+          .Personal i { background-position:-216px -185px; }
+
+          .order-Dvt i { background-position:-248px -185px; }
+
+          .order-Taobao i { background-position:-408px -185px; }
+          
+          .Account i { background-position:-280px -185px; }
+
+          .Traveller-Infor i { background-position:-376px -185px; }
+
+          .Logout i { background-position:-312px -185px; }
+        }
+      }
+    }
+  }
+}
+
+.modal-login {
+	position: relative;
+	margin: 0px auto;
+	top: 150px;
+  width: 360px;
+  z-index: 4;
+
+  .modal-hiden {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 22px;
+    color: #888;
+    font-weight: 700;
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    position: relative;
+    padding: 30px 25px 25px;
+
+    .content-title {
+      position: relative;
+      padding-bottom: 15px;
+
+      .title-name {
+        font-size: 24px;
+      }
+
+      .title-signup {
+        font-size: 14px;
+        position: absolute;
+        top: 12px;
+        right: 0px;
+      }
+    }
+    
+    .input-username,
+    .input-password {
+      padding: 10 5px;
+
+      input {
+        position: relative;
+        height: 34px;
+        width: 100%;
+        padding-left: 2.5%;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+      }
+
+      label {
+        div {
+          font-size: 14px;
+          padding: 4px 0 0px 4px;
+          color: #606266;
+        }
+
+        .warning {
+          color: #E6A23C;
+        }
+
+        .danger {
+          color: #F56C6C;
+        }
+      }
+    }
+
+    .input-password {
+      position: relative;
+
+      .password-eye {
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        background: url("/dist/img/ico.png");
+        background-position: -334px -151px;
+        cursor: pointer;
+      }
+
+      .eye-show {
+        background-position: -366px -151px;
+      }
+    }
+
+    .content-option {
+      position: relative;
+      padding-bottom: 15px;
+
+      label {
+        font-size: 14px;
+      }
+
+      .content-forget {
+        position: absolute;
+        top: 0px;
+        right: 5px;
+
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .content-btn {
+      height: 32px;
+      width: 100%;
+      line-height:32px;
+      border-radius: 4px;
+      text-align: center;
+      color: #fff;
+      background: #009f86;
+      cursor: pointer;
+    }
+    .content-btn:hover {
+      background:rgb(0, 144, 121);
+    }
+
+  }
+
+  .modal-hiden:hover {
+    color: #000;
+  }
+}

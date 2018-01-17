@@ -1,0 +1,260 @@
+{{ set (homeURL = "./../../") }}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>【潜游时光】马来西亚_卡帕莱_出境游_自由行_潜水度假村-潜游时光，让您的旅行有温度</title>
+  <meta name="keywords" content="潜游时光，马来西亚，卡帕莱，出境游，自由行，潜水度假村，旅游攻略" />
+  <meta name="description" content="【潜游时光】专业的旅游行程定制,全新的服务体验,最佳的旅游度假体验,为您提供一站式潜水度假村预定服务,为出国旅游者提供最佳的旅游攻略和服务,让您的旅行有温度。" />
+  <meta name="author" content="潜游时光" />
+
+  <link rel="stylesheet" type="text/css" href='{{ "./index.css?file_version=" + file_version }}'>
+</head>
+<body>
+  <header>
+    <a href='{{ homeURL + "index.html" }}'><i></i></a>
+    <div class="tell-header">服务咨询 :<a href="tel://4006709078"> 400-9688-768</a></div>
+  </header>
+
+  <div class="main"><div id="main" style="display: none;">
+
+    <div class="orders-navigation">
+      <ol>
+        <li class="navigation-before">1 · 选择度假产品</li>
+        <li class="navigation-active">2 · 确认订单填写客户信息</li>
+        <li class="navigation-after">3 · 提交订单</li>
+      </ol>
+    </div>
+
+    <div id="ordersDetail" class="orders-detail">
+
+      <div class="main-title"><span>1</span>订单详情</div>
+
+      <div class="orders-content">
+
+        <div class="orders-title" id="orders-title">{{% {{ordersTitle}} %}}</div>
+
+        <div class="orders-date row">
+          <div class="col-5" id="departureDate">出发日期: {{% {{startDate}} %}}</div>
+        </div>
+
+        <div class="orders-title">统计</div>
+
+        <div class="orders-table">
+          <div class="orders-table-title row">
+            <div class="col-4"><div>项目</div></div>
+            <div class="col-4"><div>数量</div></div>
+            <div class="col-4 price"><div>合计</div></div>
+          </div>
+          <div class="orders-table-content">
+            <div class="orders-table-total row">
+              <div class="col-4"><div>合计</div></div>
+              <div class="col-4"><div id="productNum">&nbsp&nbsp{{% {{ordersCount}} %}}</div></div>
+              <div class="col-4 price"><div id="totalPrice">{{% {{ordersprice}} %}}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="customerInfo" class="customer">
+
+      <div class="main-title"><span>2</span>顾客信息</div>
+
+      <div class="customer-content">
+        <div class="customer-title">
+          旅客信息 <span> 注: 至少提供一人信息</span>
+        </div>
+        <div class="customer-add" v-on:click="listModalIsShow = true">选择旅客信息</div>
+        <transition name="customer-modal-transition">
+          <div
+            v-if="listModalIsShow"
+            v-bind:class="listModalIsShow ? 'customer-list-modal-content' : 'customer-list-modal-none'"
+          >
+            <div class="customer-list-modal">
+              <div class="customer-list-modal-title">
+                选择旅客信息<span v-on:click="listModalIsShow = false">X</span>
+              </div>
+              <div class="customer-list">
+                <div
+                  v-for="item in list"
+                  v-bind:class="['customer-list-item', item.isSelect ? 'customer-list-itemIsSelect' : '']"
+                >
+                  <div class="customer-list-item-select" v-on:click="item.isSelect = (item.isSelect ? false : true )">{{% {{(item.isSelect ? '√' : 'X')}} %}}</div>
+                  <div class="customer-list-item-name" v-on:click="item.isSelect = (item.isSelect ? false : true )">{{% {{item.name}} %}}</div>
+                  <div class="customer-list-item-separate" v-on:click="item.isSelect = (item.isSelect ? false : true )"></div>
+                  <div class="customer-list-item-detail" v-on:click="item.isSelect = (item.isSelect ? false : true )"> {{% {{item.age}} %}}岁 - {{% {{item.gender}} %}} - {{% {{item.mobile}} %}} </div>
+                  <div class="customer-list-item-modify" v-on:click="showModifyItem(item.id)">修改</div>
+                </div>
+              </div>
+              <div class="customer-list-add">
+                <div v-on:click="showAddItem">新增用户信息</div>
+              </div>
+              <div class="customer-list-confirm">
+                <div v-on:click="addRenderList">保存并且添加</div>
+              </div>
+            </div>
+          </div>
+        </transition>
+        <transition name="customer-modal-transition">
+          <div
+            v-if="itemModalIsShow"
+            v-bind:class="itemModalIsShow ? 'customer-detail-modal-content' : 'customer-detail-modal-none'"
+          >
+            <div class="customer-detail-modal">
+                <div class="customer-detail-modal-title">
+                  {{% {{itemType === 'add' ? '新增旅客信息' : '修改旅客信息'}} %}}
+                  <span v-on:click="itemModalIsShow = !itemModalIsShow">X</span>
+                </div>
+              <div class="customer-detail">
+                <div class="row">
+                  <div class="col-6">
+                    <div><span class="red">*</span>姓名(中文)</div>
+                    <div><input type="text" v-model="chineseName"></div>
+                    <div class="error">{{% {{chineseNameError}} %}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div><span class="red">*</span>姓名(拼音)</div>
+                    <div><input type="text" v-model="pinyinName"></div>
+                    <div class="error">{{% {{pinyinNameError}} %}}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div>护照号码</div>
+                    <div><input type="text" v-model="item.passportNo"></div>
+                  </div>
+                  <div class="col-6">
+                    <div>性别</div>
+                    <div class="customer-detail-sex">
+                      <input type="radio" name="sex" value="0" v-model="item.gender" id="male"><label for="male">男</label>
+                      <input type="radio" name="sex" value="1" v-model="item.gender" id="female"><label for="female">女</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div><span class="red">*</span>出生日期</div>
+                    <div class="datepicker"><datepicker max='2018-01-01' language="ch" v-model="item.birthday"></datepicker></div>
+                    <div class="error">{{% {{item.birthdayError}} %}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div><span>*</span>年龄</div>
+                    <div><input type="text" v-model="item.age" disable disabled="disabled"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div><span class="red">*</span>手机号码</div>
+                    <div><input type="text" v-model="item.mobile"></div>
+                    <div class="error">{{% {{item.mobileError}} %}}</div>
+                  </div>
+                  <div class="col-6">
+                    <div><span class="red">*</span>邮箱</div>
+                    <div><input type="text" v-model="item.email"></div>
+                    <div class="error">{{% {{item.emailError}} %}}</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div>潜水等级</div>
+                    <div>
+                      <select v-model="item.divingCount">
+                        <option selected="selected" disabled="disabled" value="">请选择</option>
+                        <option value="1">OW(初级潜水员)</option>
+                        <option value="2">AOW及以上</option>
+                        <option value="">无</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div>潜水次数(请填写100以下次数)</div>
+                    <div><input type="text" v-model="item.divingRank"></div>
+                    <div class="error">{{% {{item.divingRankError}} %}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="customer-detail-confirm">
+                <div v-on:click="saveItem(itemType)">{{% {{itemBTN}} %}}</div>
+              </div>
+            </div>
+          </div>
+        </transition>
+        <div class="customer-result" v-for="item in renderList">
+          <div class="customer-result-title">旅客</div>
+          <div class="customer-result-delete" v-on:click="removeRenderitem(item.id)">X</div>
+          <div class="customer-result-content">
+            <div class="row">
+              <div class="col-2">护照号码:</div>
+              <div class="col-3"><input type="text" v-model="item.passportNo" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-6 notice">请确保护照的有效期在出行前6个月以上。</div>
+            </div>
+            <div class="row">
+              <div class="col-2">姓名(中文):</div>
+              <div class="col-3"><input type="text" v-model="item.chineseName" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-6 notice">请依照护照姓名中文输入。例，张三</div>
+            </div>
+            <div class="row">
+              <div class="col-2">姓名(拼音):</div>
+              <div class="col-3"><input type="text" v-model="item.pinyinName" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-6 notice">请依照护照拼音输入。例，ZHANGSAN</div>
+            </div>
+            <div class="row">
+              <div class="col-2">性别:</div>
+              <div class="col-10 customer-result-sex" v-if="item.gender === 1">
+                <input type="radio" disabled><label>男</label>
+                <input type="radio" checked disabled><label>女</label>
+              </div>
+              <div class="col-10 customer-result-sex" v-else>
+                <input type="radio" checked disabled><label>男</label>
+                <input type="radio" disabled><label>女</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">出生日期:</div>
+              <div class="col-3"><input type="text" v-model="item.birthday" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-1">年龄:</div>
+              <div class="col-3"><input type="text" v-model="item.age" disabled></div>
+            </div>
+            <div class="row">
+              <div class="col-2">手机号码:</div>
+              <div class="col-3"><input type="text" v-model="item.mobile" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-1">邮箱:</div>
+              <div class="col-3"><input type="text" v-model="item.email" disabled></div>
+            </div>
+            <div class="row">
+              <div class="col-2">潜水等级:</div>
+              <div class="col-3"><input type="text" v-model="item.divingRank" disabled></div>
+              <div class="col-1"></div>
+              <div class="col-1">潜次:</div>
+              <div class="col-3"><input type="text" v-model="item.divingCount" disabled></div>
+            </div>
+          </div>
+        </div>
+        <div class="customer-submit">
+          <div class="customer-submit-btn" v-on:click="submit">{{% {{submitBTN}} %}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div></div>
+
+  {{ include ("./../../Component/Copyright/index") }}
+
+  <script type="text/javascript" src='{{ homeURL + "dist/js/vue.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/vue-date-picker.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/es6-promise.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/fetch.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/ChineseHelper.js" }}'></script>
+
+  <script type="text/javascript" src='{{ homeURL + "dist/js/config.js?file_version=" + file_version }}'></script>
+  <script type="text/javascript" src='{{ "./index.js?file_version=" + file_version }}'></script>
+</body>
+</html>

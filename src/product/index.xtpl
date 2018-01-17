@@ -1,0 +1,192 @@
+{{ set (homeURL = "./../") }}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>【潜游时光】马来西亚_卡帕莱_出境游_自由行_潜水度假村-潜游时光，让您的旅行有温度</title>
+  <meta name="keywords" content="潜游时光，马来西亚，卡帕莱，出境游，自由行，潜水度假村，旅游攻略" />
+  <meta name="description" content="【潜游时光】专业的旅游行程定制,全新的服务体验,最佳的旅游度假体验,为您提供一站式潜水度假村预定服务,为出国旅游者提供最佳的旅游攻略和服务,让您的旅行有温度。" />
+  <meta name="author" content="潜游时光" />
+
+  <link rel="stylesheet" type="text/css" href='{{ homeURL + "dist/css/bootstrap.min.css" }}'>
+  <link rel="stylesheet" type="text/css" href='{{ homeURL + "dist/css/bootstrap-datetimepicker.min.css" }}'>
+  <link rel="stylesheet" type="text/css" href='{{ "./index.css?file_version=" + file_version }}'>
+</head>
+<body>
+
+  {{ include ("./../Component/Navigation-Bar/index") }}
+
+  <div id="carousel"></div>
+
+  <div class="part1 part-tlitle">
+    <div class="part-content">
+
+      <div class="part-content-left">
+        <h1 id="productName">正在加载... <span></span></h1>
+        <p id="productDesc">正在加载...</p>
+      </div>
+
+      <div class="part-aside">
+        <div class="part-aside-top">
+          <div class="aside-left">套餐价格</div>
+          <div class="aside-rigth"><span id="productPrice">正在加载...</span> RMB</div>
+        </div>
+        <div class="part-aside-bottom">
+          <div class="aside-left">价格优惠期</div>
+          <div class="aside-rigth" id="promoteTime">正在加载...</div>
+        </div>
+      </div>
+
+      <div class="part-content-right reserve">
+        <div class="reserve-content">
+          <div id="apartmentTitle" class="reserve-apartmentTitle">正在加载...</div>
+
+          <div class="reserve-reserve-date" id="selectdays">
+            出发日期
+          </div>
+
+          <div class="datetimepicker" id="starDatePicker">
+            <input type="text" style="display: none">
+          </div>
+
+          <div class="package-count" id="selectPackageCount">
+            <div class="count-picker" id="countPicker">
+              <div class="cut">-</div>
+              <div class="main">套餐数量 1 份</div>
+              <div class="add">+</div>
+            </div>
+            <div class="count-price">
+              <div class="price-total">总价</div>
+              <div class="price-calculate" id="totalPrice">正在计算...</div>
+            </div>
+          </div>
+
+          <div class="reserve-reserve-sumbit" id="confirm-sumbit">
+            预定套餐
+          </div>
+
+          <div class="container" id="ContactUS">
+            <div class="container-left">
+              <div class="container-content">
+                <div class="content-detail">
+                  <div class="content-tiltle">联系电话:</div>
+                  <div class="content-other"><a href="tel://13750022341" >137-50022-341</a></div>
+                  <div class="content-tiltle">微信号:</div>
+                  <div class="content-other">divingtime_asia</div>
+                </div>
+                <div class="weixinQRcode"><i></i></div>
+              </div>
+            </div>
+            <div class="container-right">
+              <div>客服咨询</div>
+              <p>联系我们</p>
+              <p>收悉您的需求后，</p>
+              <p>我们会第一时间与您联系！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part2 part-attribute">
+    <div class="part-content">
+      <div class="content-tlitle">套餐说明</div>
+      <div class="part-main" id="part-attribute">
+        <div class="main-content">
+          <div class="main-content-name">正在加载...</div>
+          <div class="main-content-value">正在加载...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part3 part-trip">
+    <div class="part-content">
+      <div class="part-main">
+        <div class="content-tlitle">套餐行程</div>
+        <button type="button" class="trip-modal-btn btn btn-primary btn-sm" data-toggle="modal" data-target="#trip-modal">
+          查看详情
+        </button>
+        <div class="main-content" id="part-trip">
+          <div class="trip-from">
+            <div class="trip-from-tlitle">
+              <div class="from-tripDay">日期</div>
+              <div class="from-tripEvent">项目&amp;活动</div>
+              <div class="from-tripPlace">入宿&amp;景点</div>
+            </div>
+            <div class="trip-from-main" data-toggle="modal" data-target="#trip-modal">
+              <div class="from-tripDay">正在加载...</div>
+              <div class="from-tripEvent">正在加载...</div>
+              <div class="from-tripPlace">正在加载...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal travel fade trip-modal" id="trip-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-content">
+        <div class="trip-modal-nav">
+          <div><a href="#_day1">正在加载...</a></div>
+        </div>
+        <div class="trip-modal-main">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+            <h4 class="modal-title" id="myModalLabel">马达京5天四晚深潜套餐 (诗巴丹名额提前申请)</h4>
+          </div>
+          
+          <div class="modal-body">
+            <div class="journey">
+              <div class="journey-title" id="_day1">
+                正在加载...
+              </div>
+              <div class="journey-content"></div>
+            </div>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part4 part-costIncludes">
+    <div class="part-content">
+      <div class="content-tlitle">套餐包含</div>
+      <div class="part-main" id="part-costIncludes">
+        <div class="main-content">
+          <div class="main-content-name">正在加载...</div>
+          <div class="main-content-value">正在加载...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part5 part-refundrule" id="part-refundrule">
+    <div class="part-content">
+      <div class="content-tlitle">退款说明</div>
+      <div class="part-main">
+      </div>
+    </div>
+  </div>
+
+  {{ include ("./../Component/ScrollTop/index") }}
+
+  {{ include ("./../Component/Copyright/index") }}
+
+  <script type="text/javascript" src='{{ homeURL + "dist/js/jquery-2.1.4.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/es6-promise.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/bootstrap.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/bootstrap-datetimepicker.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/bootstrap-datetimepicker.zh-CN.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/fetch.min.js" }}'></script>
+
+  <script type="text/javascript" src='{{ homeURL + "dist/js/config.js?file_version=" + file_version }}'></script>
+  <script type="text/javascript" src='{{ "./index.js?file_version=" + file_version }}'></script>
+</body>
+</html>

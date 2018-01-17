@@ -1,264 +1,177 @@
-* {
-	padding: 0px;
-	margin: 0px;
-	body {
-		width: 100%;
-		height: 100%;
-	}
+@import './less/base.less';
+@import './less/row.less';
+
+@import './Component/Navigation-Bar/index.less';
+@import './Component/ScrollTop/index.less';
+@import './Component/Copyright/index.less';
+
+i {
+  display: block;
+  background-image: url("./dist/img/ico.png");
 }
 
-@import url('src/nav/header.less');
-@import url('src/nav/bottom.less');
-
-@heise:#4d5d77;
-@icon:url("./dist/img/ico.png");
-@yingying: 0 2px 5px rgba(0,0,0,.26);
-@huise:#8d8d8d;
-@baise:#dbdbdb;
-@FontFamily:Helvetica,Arial,"Hiragino Sans GB","Microsoft YaHei",sans-serif;
-*{
-	padding:0px;
-	margin:0px;
-	font-family:@FontFamily;
-	body{
-		width: 100%;
-		height: 100%
-	}
-	a {
-		text-decoration: none;
-		color: @heise;
-		font-family:"微软雅黑";
-	}
-	a:hover {
-		text-decoration: none;
-		color: @heise;
-		font-family:"微软雅黑";
-	}
-}
 .carousel {
 	padding-top:50px;
-	.carousel-inner {
-		.item {
-			img {
-				width:100%;
-				// height: 100%;
+  min-width: 995px;
+
+  .carousel-inner {
+
+    .item {
+
+      img {
+				width: 100%;
 				height: 540px;
-				@media (max-width:970px) {
-					height: 331px;
-				}
-				@media (max-width:750px) {
-					height: 241px;
-				}
 			}
 		}
 	}
 	.carousel-control {
-		.glyphicon {
+
+    .glyphicon {
 			width: 64px;
 			height: 64px;
-			background-image: @icon;
+      background-image: url("./dist/img/ico.png");
+      cursor: pointer;
 		}
-		.glyphicon-chevron-left {
-			background-position:0px -35px;
+
+    .glyphicon-chevron-left {
+			background-position: 0px -35px;
 		}
-		.glyphicon-chevron-right {
-			background-position:-64px -35px;
+
+    .glyphicon-chevron-right {
+			background-position: -64px -35px;
 		}
 	}
 }
-.block {
-	color: #4d5d77;
-	background: #f9f9f9;
-	h2 {
-		margin-top: 0px;
-		text-align: center;
-		font-size: 30px;
-	  	font-weight: normal;
-	  	padding:60px 0px;
-	  	span {
-	  		margin-left: 30px;
-			font-size: 15px;
-	  	}
-	}
-	.blockContain {
-		overflow: hidden;
-		max-width: 1080px + 26px;
-		margin:auto;
-		> div {
-			float: left;
-		}
-		.line {
-			padding:0px 13px 50px;
-			position: relative;
-			.img {
-				position: relative;
-				height:220px;
-				overflow: hidden;
-				color: #fff;
-				img {
-					width:100%;
-					height: inherit;
-				}
-				.imgContain {
-					position:absolute;
-					right: 0px;
-					bottom: 0px;
-					.title {
-						display: none;
-					}
-					.Content {
-						.price {
-							display: none;
-						}
-						.cover {
-							text-align: center;
-							line-height: 45px;
-							font-size: 16px;
-							width:105px;
-							height:45px;
-						}
-						.cover1 {
+
+.product {
+  min-width: 995px;
+
+  .product-list {
+    background: #f9f9f9;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    > h2 {
+      text-align: center;
+      font-size: 30px;
+      padding-bottom: 60px;
+
+      a {
+        padding-left: 30px;
+        font-size: 14px;
+      }
+    }
+
+    .list-content {
+      overflow: hidden;
+      width: 995px + 24px;
+      margin: auto;
+
+      .item {
+        float: left;
+        width: 33%;
+      }
+
+      .item-big {
+        width: 50%;
+      }
+
+      .item-content {
+        padding: 0px 12px 50px;
+
+        .item-img {
+          position: relative;
+          height: 220px;
+          overflow: hidden;
+  
+          img {
+            width: 100%;
+            height: inherit;
+          }
+          
+          .img-label {
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            width: 105px;
+            height: 45px;
+            font-size: 16px;
+            line-height: 45px;
+            text-align: center;
+            color: #fff;
+
+            .label-product {
 							background: rgba(1,185,105,.87);
-						}
-						.cover2 {
+            }
+
+            .label-isNew {
 							background: rgba(25,163,220,.87);
-						}
-						.cover3 {
+            }
+
+						.label-promote {
 							background: rgba(234,84,91,.87);
 						}
-					}
-				}
-			}
-			.Text {
-				padding-top: 20px;
-				.left {
-					float: left;
-					width: 70%;
-					white-space:nowrap;
-					overflow:hidden;
-					text-overflow:ellipsis;
-				}
-				.right {
-					float: right;
-				}
-				.TextT {
-					overflow: hidden;
-					font-size: 16px;
-				}
-				.TextB {
-					padding-top: 2.5px;
-					overflow: hidden;
-					font-size: 14px;
-					color: #8d8d8d;
-				}
-			}
-		}
-		.separate3 {
-			width: 33%;
-		}
-		.separate2 {
-			width: 50%;
-		}
-	}
-	@media (max-width:990px) {
-		h2 {
-			font-size: 26px;
-  			padding:25px 0px;
-		  	span {
-		  		margin-left: 10px;
-				font-size: 12px;
-		  	}
-		}
-		.blockContain {
-			.line {
-				padding:2.5px 0px;
-				.img {
-					a {
-						position: absolute;
-						width: 100%;
-						height: 100%;
-					}
-					.Masking {
-						position: absolute;
-						width: 100%;
-						height: 100%;
-						background: rgba(0, 0, 0, 0.4)
-					}
-					.imgContain {
-						position:absolute;
-						left: 50%;
-						width: 90%;
-						margin-left: -45%;
-						top: 50%;
-						margin-top: -30px;
-						.title {
-							font-size:24px;
-							text-align: center;
-							display: block;
-							overflow:hidden;
-							text-overflow:ellipsis;
-						}
-						.Content {
-							padding-top: 10px;
-							width: 150px;
-							margin:0px auto;
-							overflow: hidden;
-							@media (max-width: 990px) {
-								overflow: visible;
-							}
-							>div{
-								float: left;
-							}
-							.price {
-								padding-left: 30px;
-								display: block;
-								width: 85px;
-								font-size: 12px;
-								line-height: 25px;
-							}
-							.cover {
-								line-height: 25px;
-								font-size: 12px;
-								width:65px;
-								height:25px;
-							}
-						}
-					}
-				}
-				.Text {
-					display: none;
-				}
-			}
-			.separate3,.separate2 {
-				width: 100%;
-			}
-			> div {
-				float: none;
-			}
-		}
-	}
-}
-.interval {
-	background: #f1f1f1;
-}
-@media only screen and (max-width: 992px) {
-  .content {
-    padding: 0 10px;
-    text-align: center;
-  }
-  .col-md-4 figure {
-    display: inline-block;
-    float: none;
-    margin: 10px auto 0px;
-    height: 300px;
-    width: 100%;
-  }
-  .part {
-	padding-top:30px;
-	padding-bottom:0px;
-    > h1 {
-		padding-bottom:20px;
-		margin:0px;
+          }
+        }
+
+        .item-detail {
+          padding-top: 20px;
+
+          .detail-NameAndPrice {
+            position: relative;
+            
+            padding-bottom: 2.5px;
+            color: #4d5d77;
+
+            .detail-productName {
+              width: 70%;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+
+              a {
+                color: #4d5d77;
+                font-size: 16px;  
+                font-family: Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+              }
+
+              a:hover {
+                text-decoration: none;
+              }
+            }
+
+            .detail-price {
+              position: absolute;
+              top: 0px;
+              right: 0px;
+            }
+          }
+
+          .detail-apartmentAndPromote {
+            position: relative;
+            color: #8d8d8d;
+            font-size: 14px;
+
+            .detail-apartment {
+              width: 70%;
+              white-space:nowrap;
+              overflow:hidden;
+              text-overflow:ellipsis;
+            }
+
+            .detail-promote {
+              position: absolute;
+              top: 0px;
+              right: 0px;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
     }
+  }
+
+  .list-interval {
+    background: #f1f1f1;
   }
 }

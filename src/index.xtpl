@@ -1,239 +1,40 @@
-{{ set (homeURL = "./") }}<!DOCTYPE html>
+{{ set (homeURL = "./") }}
+<!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>【潜游时光】马来西亚_卡帕莱_出境游_自由行_潜水度假村-潜游时光，让您的旅行有温度</title>
   <meta name="keywords" content="潜游时光，马来西亚，卡帕莱，出境游，自由行，潜水度假村，旅游攻略" />
   <meta name="description" content="【潜游时光】专业的旅游行程定制,全新的服务体验,最佳的旅游度假体验,为您提供一站式潜水度假村预定服务,为出国旅游者提供最佳的旅游攻略和服务,让您的旅行有温度。" />
   <meta name="author" content="潜游时光" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href={{homeURL+"dist/css/bootstrap.min.css"}}>
-  <script type="text/javascript" src={{homeURL+"dist/js/jquery-2.1.4.min.js"}}></script>
-  <script type="text/javascript" src={{homeURL+"dist/js/jquery.cookie.js"}}></script>
-  <script type="text/javascript" src={{homeURL+"dist/js/bootstrap.min.js"}}></script>
-  <script type="text/javascript" src={{homeURL+"dist/js/appconfig.js?file_version=3.2"}}></script>
 
-  <link rel="stylesheet" type="text/css" href="./index.css?file_version=3.2">
-  <script type="text/javascript" src="./index.js?file_version=3.2"></script>
+  <link rel="stylesheet" type="text/css" href='{{ homeURL + "dist/css/bootstrap.min.css" }}'>
+  <link rel="stylesheet" type="text/css" href='{{ "./index.css?file_version=" + file_version }}'>
 </head>
 <body>
 
-  {{ include ("./nav/header") }}
+  {{ include ("./Component/Navigation-Bar/index") }}
 
-  <!-- 轮播图 -->
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox" id="carousel">
-      <a href="">
-      <div class="item active">
-        <img src="">
-        <div class="carousel-caption">
-        </div>
-      </div>
-      </a>
-      <div class="item">
-        <img src="">
-        <div class="carousel-caption">
-        </div>
-      </div>
-      <div class="item">
-        <img src="">
-        <div class="carousel-caption">
-        </div>
-      </div>
-    </div>
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="sr-only">Previous</span>
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <i class="left-btn allbtn"></i>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="sr-only">Next</span>
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <i class="right-btn allbtn"></i>
-    </a>
-  </div>
-  <!-- 内容 -->
-  <div class="mainContent" id="mainContent">
+  <div id="carousel"></div>
+  <div class="product" id="product"></div>
 
-    <!-- <div class="block">
-      <h2>正在加载标题...<span><a href="https://divet.taobao.com/?spm=a1z10.1-c.0.0.8cxl3q">更多</a></span></h2>
-      <div class="blockContain">
+  {{ include ("./Component/ScrollTop/index") }}
 
-        <div class="line separate3">
-          <div class="img">
-            <div class="Masking"></div>
-            <img src="" />
-            <div class="imgContain">
-              <div class="title">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-              <div class="Content">
-                <div class="cover cover1">度假套餐</div>
-                <div class="price">价格</div>
-              </div>
-            </div>
-          </div>
-          <div class="Text">
-              <div class="TextT">
-                <div class="left" title="">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-                <div class="right">促销</div>
-              </div>
-              <div class="TextB">
-                <div class="left">水上木屋</div>
-                <div class="right">原价</div>
-              </div>
-          </div>
-        </div>
+  {{ include ("./Component/Copyright/index") }}
 
-        <div class="line separate3">
-          <div class="img">
-            <div class="Masking"></div>
-            <img src="" />
-            <div class="imgContain">
-              <div class="title">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-              <div class="Content">
-                <div class="cover cover2">度假套餐</div>
-                <div class="price">价格</div>
-              </div>
-            </div>
-          </div>
-          <div class="Text">
-              <div class="TextT">
-                <div class="left" title="">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-                <div class="right">促销</div>
-              </div>
-              <div class="TextB">
-                <div class="left">水上木屋</div>
-                <div class="right">原价</div>
-              </div>
-          </div>
-        </div>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/jquery-2.1.4.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/es6-promise.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/bootstrap.min.js" }}'></script>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/fetch.min.js" }}'></script>
 
-        <div class="line separate3">
-          <div class="img">
-            <div class="Masking"></div>
-            <img src="" />
-            <div class="imgContain">
-              <div class="title">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-              <div class="Content">
-                <div class="cover cover3">度假套餐</div>
-                <div class="price">价格</div>
-              </div>
-            </div>
-          </div>
-          <div class="Text">
-              <div class="TextT">
-                <div class="left" title="">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-                <div class="right">促销</div>
-              </div>
-              <div class="TextB">
-                <div class="left">水上木屋</div>
-                <div class="right">原价</div>
-              </div>
-          </div>
-        </div>
+  <script type="text/javascript" src='{{ homeURL + "dist/js/config.js?file_version=" + file_version }}'></script>
+  <script type="text/javascript" src='{{ "./index.js?file_version=" + file_version }}'></script>
 
-        <div class="line separate2">
-          <div class="img">
-            <div class="Masking"></div>
-            <img src="" />
-            <div class="imgContain">
-              <div class="title">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-              <div class="Content">
-                <div class="cover cover2">度假套餐</div>
-                <div class="price">价格</div>
-              </div>
-            </div>
-          </div>
-          <div class="Text">
-              <div class="TextT">
-                <div class="left" title="">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-                <div class="right">促销</div>
-              </div>
-              <div class="TextB">
-                <div class="left">水上木屋</div>
-                <div class="right">原价</div>
-              </div>
-          </div>
-        </div>
-
-        <div class="line separate2">
-          <div class="img">
-            <div class="Masking"></div>
-            <img src="" />
-            <div class="imgContain">
-              <div class="title">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-              <div class="Content">
-                <div class="cover cover2">度假套餐</div>
-                <div class="price">价格</div>
-              </div>
-            </div>
-          </div>
-          <div class="Text">
-              <div class="TextT">
-                <div class="left" title="">5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品5天4晚海滩蜜月之旅产品</div>
-                <div class="right">促销</div>
-              </div>
-              <div class="TextB">
-                <div class="left">水上木屋</div>
-                <div class="right">原价</div>
-              </div>
-          </div>
-        </div>
-
-      </div>
-    </div> -->
-
-  </div>
-  <!-- 返回顶部 -->
-  <div class="return_Top">
-    <div class="Taobao_customer_service" id="Taobao_customer_service">
-      <div class="_SVG"></div>
-      <div class="Taobao_List" style="display: none;">
-        <div class="A_content">
-          <div class="title">
-            <span>
-              <a href="https://divet.taobao.com/?spm=a1z10.1-c.0.0.8cxl3q" target="_blank">潜游时光</a>
-            </span>
-            <a href="https://divet.taobao.com/?spm=a1z10.1-c.0.0.8cxl3q" target="_blank"><i></i></a>
-          </div>
-          <div class="main_content">
-            <p>在线客服</p>
-            <div><span>淘宝客服</span><a target="_blank" href="http://www.taobao.com/webww/ww.php?ver=3&touid=%E6%BD%9C%E6%B8%B8%E6%97%B6%E5%85%89&siteid=cntaobao&status=1&charset=utf-8"><img border="0" src="http://amos.alicdn.com/online.aw?v=2&uid=%E6%BD%9C%E6%B8%B8%E6%97%B6%E5%85%89&site=cntaobao&s=1&charset=utf-8" alt="" title="" /></a></div>
-            <div><span>腾讯客服</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2546623187&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2546623187:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></div>
-            <div class="QRcode"><span>微信客服</span>
-            <div class="weixinQRcode"><i></i></div>
-            <article>divingtime<div>hailang</div></article>
-            </div>
-          </div>
-          <div class="main_content">
-            <p>工作时间</p>
-            <div><span style="font-size:12px;">周一至周日：9:00-23:00</span></div>
-          </div>
-          <div class="main_content" style="border:none;">
-            <p>联系方式</p>
-            <div><span style="font-size:12px;white-space:nowrap;">联系电话：400-9688-768</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="top" id="scroll_Top"><i></i></div>
-  </div>
-
-  {{ include ("./nav/bottom") }}
-
-</body>
   <script type="text/javascript">
-  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-  document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1261043384'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261043384' type='text/javascript'%3E%3C/script%3E"));
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan style='display:none' id='cnzz_stat_icon_1261043384'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1261043384' type='text/javascript'%3E%3C/script%3E"));
   </script>
+</body>
 </html>
